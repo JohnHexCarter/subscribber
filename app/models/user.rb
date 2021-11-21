@@ -7,9 +7,12 @@
 # stripe_id   String
 # role        String
 # archived_at DateTime
+# 
 
 class User < ApplicationRecord
-  # has_many addresses
+
+  has_many :address_users
+  has_many :addresses, through: :address_users
 
   ROLE_LIST = %w[user creator admin].freeze
 
