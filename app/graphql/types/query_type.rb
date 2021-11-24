@@ -17,7 +17,7 @@ module Types
       argument :token, String, required: true
     end
 
-    def addresses(id:, **args)
+    def address(id:, **args)
       return if context[:current_user].blank?
 
       address = Address.find id
