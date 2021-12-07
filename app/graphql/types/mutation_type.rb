@@ -10,7 +10,7 @@ module Types
     # Users
     field :create_user, mutation: Mutations::Users::CreateUser
     field :sign_in_user, mutation: Mutations::Users::SignInUser
-    field :sign_out_user, mutation: Mutations::Users::SignOutUser
     field :update_user, mutation: Mutations::Users::UpdateUser
+    field :update_user_password, mutation: Mutations::Users::UpdateUserPassword
   end
 end
