@@ -14,6 +14,8 @@ class User < ApplicationRecord
 
   has_many :address_users
   has_many :addresses, through: :address_users
+  has_many :page_users
+  has_many :pages, through: :page_users
 
   ROLE_LIST = %w[user creator admin].freeze
 

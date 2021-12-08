@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_21_145620) do
+ActiveRecord::Schema.define(version: 2021_12_08_152810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,25 @@ ActiveRecord::Schema.define(version: 2021_11_21_145620) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "page_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "page_id", null: false
+    t.string "role", default: "manager"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["page_id"], name: "index_page_users_on_page_id"
+    t.index ["user_id"], name: "index_page_users_on_user_id"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "slug", null: false
+    t.text "description", null: false
+    t.datetime "archived_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest"
@@ -50,4 +69,6 @@ ActiveRecord::Schema.define(version: 2021_11_21_145620) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "page_users", "pages"
+  add_foreign_key "page_users", "users"
 end
