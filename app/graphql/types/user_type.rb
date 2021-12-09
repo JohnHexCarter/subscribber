@@ -4,6 +4,8 @@ module Types
   class UserType < BaseObject
     field :addresses, [AddressType], null: true
     field :address_users, [AddressUserType], null: true
+    field :pages, [PageType], null: true
+    field :page_users, [PageUserType], null: true
 
     field :id, Int, null: false
 

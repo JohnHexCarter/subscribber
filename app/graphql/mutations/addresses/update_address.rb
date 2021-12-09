@@ -10,6 +10,7 @@ module Mutations
       argument :province,    String, required: false
       argument :postal_code, String, required: false
       argument :country,     String, required: false
+      argument :archived_at, String, required: false
       argument :token,       String, required: true
 
       field :address, Types::AddressType, null: true
