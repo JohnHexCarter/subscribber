@@ -4,6 +4,7 @@ module Types
   class PageType < BaseObject
     field :page_users, [PageUserType], null: true
     field :users, [UserType], null: true
+    field :pages, [PageType], null: true
 
     field :id, Int, null: false
 
