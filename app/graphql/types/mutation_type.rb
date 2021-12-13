@@ -14,6 +14,10 @@ module Types
     field :create_page_user, mutation: Mutations::PageUsers::CreatePageUser
     field :update_page_user, mutation: Mutations::PageUsers::UpdatePageUser
 
+    # Posts
+    field :create_post, mutation: Mutation::Posts::CreatePost
+    field :update_post, mutation: Mutation::Posts::UpdatePost
+
     # Users
     field :create_user, mutation: Mutations::Users::CreateUser
     field :sign_in_user, mutation: Mutations::Users::SignInUser
