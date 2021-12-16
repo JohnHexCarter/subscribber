@@ -6,6 +6,10 @@ module Types
     field :create_address, mutation: Mutations::Addresses::CreateAddress
     field :update_address, mutation: Mutations::Addresses::UpdateAddress
 
+    # Messages
+    field :create_message, mutation: Mutations::Messages::CreateMessage
+    field :update_message, mutation: Mutations::Messages::UpdateMessage
+
     # Pages
     field :create_page, mutation: Mutations::Pages::CreatePage
     field :update_page, mutation: Mutations::Pages::UpdatePage

@@ -23,6 +23,48 @@ module Types
       address = Address.find id
     end
 
+    # Messages
+    field :message, MessageType, null: true do
+      description 'Find a message by ID'
+
+      argument :id, Int, required: true
+      argument :token, String, required: true
+    end
+
+    def message(id:, **args)
+      return if context[:current_user].blank?
+
+      message = Message.find id # && any restrictions to viewing a message
+    end
+
+    # Pages
+    field :page, PageType, null: true do
+      description 'Find a page by ID'
+
+      argument :id, Int, required: true
+      argument :token, String, required: true
+    end
+
+    def page(id:, **args)
+      return if context[:current_user].blank?
+
+      page = Page.find id # && any restrictions
+    end
+
+    # Posts
+    field :post, PostType, null: true do
+      description 'Find a post by ID'
+
+      argument :id, Int, required: true
+      argument :token, String, required: true
+    end
+
+    def post(id:, **args)
+      return if context[:current_user].blank?
+
+      post = Post.find id # && any restrictions
+    end
+
     # Users
     field :user, UserType, null: true do
       description 'Find a user by ID'
