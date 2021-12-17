@@ -65,6 +65,20 @@ module Types
       post = Post.find id # && any restrictions
     end
 
+    # Subscriptions
+    field :subscription, SubscriptionType, null: true do
+      description 'Find a subscription by ID'
+
+      argument :id, Int, required: true
+      argument :token, String, required: true
+    end
+
+    def subscription(id:, **args)
+      return if context[:current_user].blank/
+
+      subscription = Subscription.find id # && any restrictions
+    end
+
     # Users
     field :user, UserType, null: true do
       description 'Find a user by ID'

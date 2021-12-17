@@ -22,6 +22,10 @@ module Types
     field :create_post, mutation: Mutation::Posts::CreatePost
     field :update_post, mutation: Mutation::Posts::UpdatePost
 
+    # Subscriptions
+    field :create_subscription, mutation: Mutation::Subscriptions::CreateSubscription
+    field :update_subscription, mutation: Mutation::Subscriptions::UpdateSubscription
+
     # Users
     field :create_user, mutation: Mutations::Users::CreateUser
     field :sign_in_user, mutation: Mutations::Users::SignInUser

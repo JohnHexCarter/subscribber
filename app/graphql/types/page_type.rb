@@ -5,6 +5,7 @@ module Types
     field :page_users, [PageUserType], null: true
     field :users, [UserType], null: true
     field :posts, [PostType], null: true
+    field :subscriptions, [SubscriptionType], null: true
 
     field :id, Int, null: false
 

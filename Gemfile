@@ -11,6 +11,7 @@ gem 'rails', '~> 6.0.2'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'aasm'
 gem 'bcrypt'
 gem 'graphiql-rails'
 gem 'graphql'
