@@ -12,6 +12,8 @@ class Subscription < ApplicationRecord
   belongs_to :user
   belongs_to :page
 
+  has_many :payments
+
   aasm do
     state :pending, initial: true
     state :active, :inactive
