@@ -11,7 +11,7 @@ module Mutations
       field :subscription, Types::SubscriptionType, null: true
       field :errors, [String], null: false
 
-      def resolve(id:, token: **attributes)
+      def resolve(id:, token:, **attributes)
         return { subscription: nil, errors: ['No credentials'] } if context[:current_user].blank?
 
         subscription = Subscription.find id

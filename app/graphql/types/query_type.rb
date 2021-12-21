@@ -51,6 +51,20 @@ module Types
       page = Page.find id # && any restrictions
     end
 
+    # Payments
+    field :payment, PaymentType, null: true do
+      description 'Find a payment by ID'
+
+      argument :id, Int, required: true
+      argument :token, String, required: true  
+    end
+
+    def payment(id: **args)
+      return if context[:current_user].blank?
+
+      payment = Payment.find id # && any restrictions
+    end
+
     # Posts
     field :post, PostType, null: true do
       description 'Find a post by ID'

@@ -18,13 +18,17 @@ module Types
     field :create_page_user, mutation: Mutations::PageUsers::CreatePageUser
     field :update_page_user, mutation: Mutations::PageUsers::UpdatePageUser
 
+    # Payments
+    field :create_payment, mutation: Mutations::Payments::CreatePayment
+    field :update_payment, mutation: Mutations::Payments::UpdatePayment
+
     # Posts
-    field :create_post, mutation: Mutation::Posts::CreatePost
-    field :update_post, mutation: Mutation::Posts::UpdatePost
+    field :create_post, mutation: Mutations::Posts::CreatePost
+    field :update_post, mutation: Mutations::Posts::UpdatePost
 
     # Subscriptions
-    field :create_subscription, mutation: Mutation::Subscriptions::CreateSubscription
-    field :update_subscription, mutation: Mutation::Subscriptions::UpdateSubscription
+    field :create_subscription, mutation: Mutations::Subscriptions::CreateSubscription
+    field :update_subscription, mutation: Mutations::Subscriptions::UpdateSubscription
 
     # Users
     field :create_user, mutation: Mutations::Users::CreateUser
