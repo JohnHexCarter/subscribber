@@ -20,7 +20,33 @@ module Types
     def address(id:, **args)
       return if context[:current_user].blank?
 
-      address = Address.find id
+      a = Address.find id
+    end
+
+    # Categories
+    field :category, CategoryType, null: true do
+      description 'Find a category by ID'
+
+      argument :id, Int, required: true
+      argument :token, String, requried: true
+    end
+
+    field :all_categories, [CategoryType], null: false do
+      description 'Find all categories'
+
+      argument :token, String, required: true
+    end
+
+    def category(id:, **args)
+      return if context[:current_user].blank?
+
+      c = Category.find id
+    end
+
+    def all_categories(**args)
+      return [] if context[:current_user].blank?
+
+      c = Category.all
     end
 
     # Messages
@@ -48,7 +74,7 @@ module Types
     def page(id:, **args)
       return if context[:current_user].blank?
 
-      page = Page.find id # && any restrictions
+      p = Page.find id # && any restrictions
     end
 
     # Payments
@@ -62,7 +88,7 @@ module Types
     def payment(id: **args)
       return if context[:current_user].blank?
 
-      payment = Payment.find id # && any restrictions
+      p = Payment.find id # && any restrictions
     end
 
     # Posts
@@ -76,7 +102,7 @@ module Types
     def post(id:, **args)
       return if context[:current_user].blank?
 
-      post = Post.find id # && any restrictions
+      p = Post.find id # && any restrictions
     end
 
     # Subscriptions
@@ -90,7 +116,7 @@ module Types
     def subscription(id:, **args)
       return if context[:current_user].blank/
 
-      subscription = Subscription.find id # && any restrictions
+      s = Subscription.find id # && any restrictions
     end
 
     # Users
@@ -104,10 +130,10 @@ module Types
     def user(id:, **args)
       return if context[:current_user].blank?
 
-      user = User.find id
+      u = User.find id
 
-      if user.present? # && any restrictions to viewing a user
-        user
+      if u.present? # && any restrictions to viewing a user
+        u
       else
         nil
       end
