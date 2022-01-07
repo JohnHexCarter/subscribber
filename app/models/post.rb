@@ -7,4 +7,5 @@
 
 class Post < ApplicationRecord
   belongs_to :page
+  has_many :comments
 end

@@ -10,6 +10,10 @@ module Types
     field :create_category, mutation: Mutations::Categories::CreateCategory
     field :update_category, mutation: Mutations::Categories::UpdateCategory
 
+    # Comments
+    field :create_comment, mutation: Mutations::Comments::CreateComment
+    field :update_comment, mutation: Mutations::Comments::UpdateComment
+
     # Messages
     field :create_message, mutation: Mutations::Messages::CreateMessage
     field :update_message, mutation: Mutations::Messages::UpdateMessage

@@ -20,7 +20,7 @@ module Types
     def address(id:, **args)
       return if context[:current_user].blank?
 
-      a = Address.find id
+      Address.find id
     end
 
     # Categories
@@ -40,13 +40,27 @@ module Types
     def category(id:, **args)
       return if context[:current_user].blank?
 
-      c = Category.find id
+      Category.find id
     end
 
     def all_categories(**args)
       return [] if context[:current_user].blank?
 
-      c = Category.all
+      Category.all
+    end
+
+    # Comments
+    field :comment, CommentType, null: true do
+      description 'Find a comment by ID'
+
+      argument :id, Int, required: true
+      argument :token, String, required: true
+    end
+
+    def comment(id:, **args)
+      return if context[:current_user].blank?
+
+      Comment.find id
     end
 
     # Messages
@@ -60,7 +74,7 @@ module Types
     def message(id:, **args)
       return if context[:current_user].blank?
 
-      message = Message.find id # && any restrictions to viewing a message
+      Message.find id # && any restrictions to viewing a message
     end
 
     # Pages
@@ -74,7 +88,7 @@ module Types
     def page(id:, **args)
       return if context[:current_user].blank?
 
-      p = Page.find id # && any restrictions
+      Page.find id # && any restrictions
     end
 
     # Payments
@@ -88,7 +102,7 @@ module Types
     def payment(id: **args)
       return if context[:current_user].blank?
 
-      p = Payment.find id # && any restrictions
+      Payment.find id # && any restrictions
     end
 
     # Posts
@@ -102,7 +116,7 @@ module Types
     def post(id:, **args)
       return if context[:current_user].blank?
 
-      p = Post.find id # && any restrictions
+      Post.find id # && any restrictions
     end
 
     # Subscriptions
@@ -116,7 +130,7 @@ module Types
     def subscription(id:, **args)
       return if context[:current_user].blank/
 
-      s = Subscription.find id # && any restrictions
+      Subscription.find id # && any restrictions
     end
 
     # Users
