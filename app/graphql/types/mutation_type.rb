@@ -18,6 +18,9 @@ module Types
     field :create_message, mutation: Mutations::Messages::CreateMessage
     field :update_message, mutation: Mutations::Messages::UpdateMessage
 
+    # Notifications
+    field :update_notification, mutation: Mutations::Notifications::UpdateNotification
+
     # Pages
     field :create_page, mutation: Mutations::Pages::CreatePage
     field :update_page, mutation: Mutations::Pages::UpdatePage

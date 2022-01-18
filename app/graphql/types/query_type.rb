@@ -77,6 +77,20 @@ module Types
       Message.find id # && any restrictions to viewing a message
     end
 
+    # Notifications
+    field :notification, NotificationType, null: true do
+      description 'Find a notification by ID'
+
+      argument :id, Int, required: true
+      argument :token, String, required: true
+    end
+
+    def notification(id:, **args)
+      return if context[:current_user].blank?
+
+      Notification.find id
+    end
+
     # Pages
     field :page, PageType, null: true do
       description 'Find a page by ID'
